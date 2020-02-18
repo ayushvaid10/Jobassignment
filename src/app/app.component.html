@@ -1,0 +1,59 @@
+<div class="container">
+  <h1 style="text-align: center;"><b>JOB ASSIGNMENT</b></h1>
+  <label for="usr">Search username:</label>
+  <input type="text" [(ngModel)]="firstname" (input)="Search()" placeholder="Search user name" class="form-control" />
+  <div class="row">
+    <div class="col-md-15">
+      <h2 style="text-align: center;">Users details</h2>
+      <table border="2"  class="table">
+        <thead class="thead-dark" style="background-color:#3464eb;color: white;">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">User name</th>
+            <th scope="col">Forks</th>
+            <th scope="col">Watchers</th>
+            <th scope="col">Language</th>
+            <th scope="col">stargazers_count</th>
+            <th scope="col">pick</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let user of users$'>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.forks}}</td>
+            <td>{{user.watchers}}</td>
+            <td>{{user.language}}</td>
+            <td>{{user.stargazers_count}}</td>
+            <td><button (click)="addrepolist(user.id,user.name,user.forks,user.watchers,user.language,user.stargazers_count)" class="btn btn-primary" style="background-color: #3464eb;">pick</button></td>
+          </tr>
+        </tbody>  
+      </table>
+    </div>
+    <div class="col-md-15">
+      <h2 style="text-align: center;">picked list</h2>
+      <table border="2" class="table">
+        <thead class="thead-dark" style="background-color:#3464eb;color: white;">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">User name</th>
+            <th scope="col">Forks</th>
+            <th scope="col">Watchers</th>
+            <th scope="col">Language</th>
+            <th scope="col">stargazers_count</th>
+          </tr>
+        </thead>  
+        <tbody>
+          <tr *ngFor='let pickedrepolist of pickedrepolist'>
+            <td>{{pickedrepolist.id}}</td>
+            <td>{{pickedrepolist.name}}</td>
+            <td>{{pickedrepolist.forks}}</td>
+            <td>{{pickedrepolist.watchers}}</td>
+            <td>{{pickedrepolist.language}}</td>
+            <td>{{pickedrepolist.stargazers_count}}</td>
+          </tr> 
+        </tbody>  
+      </table>
+    </div>
+  </div>
+</div>
